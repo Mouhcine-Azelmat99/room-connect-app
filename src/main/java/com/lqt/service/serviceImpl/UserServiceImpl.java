@@ -25,6 +25,8 @@ public class UserServiceImpl implements UserService {
         return  userRepository.findAll();
     }
 
+
+
     @Override
     public void update(Utilisateur user) {
 
@@ -32,6 +34,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(Long id) {
+    }
 
+    @Override
+    public Utilisateur getByUsername(String name) {
+        return userRepository.findByUsername(name);
     }
 }

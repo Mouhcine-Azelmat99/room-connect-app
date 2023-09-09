@@ -1,5 +1,5 @@
+<%--<%@ page import="com.mouhcine.companiesManagement.lqt.pojo.Domiciliation" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.mouhcine.companiesManagement.lqt.pojo.Domiciliation" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

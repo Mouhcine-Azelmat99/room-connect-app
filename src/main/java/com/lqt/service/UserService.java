@@ -9,5 +9,5 @@ public interface UserService {
     List<Utilisateur> getAll();
     void update(Utilisateur user);
     void delete(Long id);
-
+    Utilisateur getByUsername(String name);
 }

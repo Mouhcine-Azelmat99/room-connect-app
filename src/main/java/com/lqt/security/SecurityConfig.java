@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/public/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/app/admin/**")).hasRole("ADMIN")
+                        .requestMatchers(new AntPathRequestMatcher("/app/landlord/**")).hasRole("LANDLORD")
                         .requestMatchers(new AntPathRequestMatcher("/app/**")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/app/auth/**")).permitAll()

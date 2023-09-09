@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface LandlordRepository extends JpaRepository<Landlord, Long> {
     @Query("SELECT l FROM landlords l WHERE l.user.username = ?1")
     Landlord findByUsername(String loggedInUsername);
+//    Landlord findLandlordByUser_Username(String loggedInUsername);
 
 }

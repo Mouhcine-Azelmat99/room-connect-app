@@ -20,7 +20,6 @@ public class PropertyListing {
 
     @ManyToOne
     @JoinColumn(name = "landlord_id")
-
     private Landlord landlord;
     private String propertyType;
     // the title of the property listing
@@ -44,11 +43,11 @@ public class PropertyListing {
     // use Location to store the location of the property
     @OneToOne
     @JoinColumn(name = "location_id")
-    private Location location= new Location();
+    private Location location;
 
     @ElementCollection
     @CollectionTable(name = "property_listing_images", joinColumns = @JoinColumn(name = "property_listing_id"))
     @Column(name = "image_url")
-    private List<String> imageUrls = new ArrayList<>();
+    private List<String> imageUrls;
 
 }
