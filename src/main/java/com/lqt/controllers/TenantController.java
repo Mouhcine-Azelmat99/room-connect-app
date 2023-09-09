@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 @Controller
 public class TenantController {
 
-    public String index(Model model){
-
-    }
+//    public String index(Model model){
+//
+//    }
 
 }
