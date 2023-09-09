@@ -44,35 +44,35 @@
                     <label for="price" class="form-label">Price</label>
                     <input class="form-control" type="number" name="price" id="price"/>
                 </div>
-            </div>
-
-            <div class="col-6">
                 <div class="mb-3">
                     <label for="numberOfResidents" class="form-label">Number of Residents</label>
                     <input class="form-control" type="number" id="numberOfResidents" name="numberOfResidents"/>
                 </div>
                 <div class="mb-3">
+                    <label for="location.address" class="form-label">Location address</label>
+                    <input class="form-control" id="location.address" name="location.address"/>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea name="description" class="form-control" id="description"></textarea>
                 </div>
+
                 <div class="mb-3">
-                    <label for="location.address" class="form-label">Location</label>
-                    <input class="form-control" id="location.address" name="location.address"/>
-                </div>
-                <div class="mb-3">
-                    <label for="location.city" class="form-label">Location</label>
+                    <label for="location.city" class="form-label">Location city</label>
                     <input class="form-control" id="location.city" name="location.city"/>
                 </div>
                 <div class="mb-3">
-                    <label for="location.country" class="form-label">Location</label>
+                    <label for="location.country" class="form-label">Location country</label>
                     <input class="form-control" id="location.country" name="location.country"/>
                 </div>
                 <div class="mb-3">
-                    <label for="location.stateProvince" class="form-label">Location</label>
+                    <label for="location.stateProvince" class="form-label">Location stateProvince</label>
                     <input class="form-control" id="location.stateProvince" name="location.stateProvince"/>
                 </div>
                 <div class="mb-3">
-                    <label for="location.zipPostalCode" class="form-label">Location</label>
+                    <label for="location.zipPostalCode" class="form-label">Location zipPostalCode</label>
                     <input class="form-control" id="location.zipPostalCode" name="location.zipPostalCode"/>
                 </div>
                 <div class="mb-3">

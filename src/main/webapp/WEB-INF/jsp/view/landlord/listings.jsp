@@ -46,7 +46,7 @@
         <c:forEach var="listing" items="${propertyListings}">
             <tr>
                 <td>${listing.id}</td>
-                <td>${listing.landlord.name}</td>
+                <td>${listing.landlord.getUser().getUsername()}</td>
                 <td>${listing.propertyType}</td>
                 <td>${listing.title}</td>
                 <td>${listing.numberOfBedrooms}</td>

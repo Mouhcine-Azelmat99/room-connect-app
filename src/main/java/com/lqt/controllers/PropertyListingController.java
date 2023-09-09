@@ -35,7 +35,7 @@ public class PropertyListingController {
     public String listPropertyListings(Model model) {
         List<PropertyListing> propertyListings = propertyListingService.getAllListings();
         model.addAttribute("propertyListings", propertyListings);
-        System.out.println(propertyListings);
+//        System.out.println(propertyListings);
         return "landlord/listings";
     }
 
@@ -100,7 +100,7 @@ public class PropertyListingController {
         Landlord landlord= landlordService.getByUsername(authentication.getName());
         propertyListing.setLandlord(landlord);
         propertyListingService.addPropertyListing(propertyListing);
-        return "redirect:/app/landlord/propertyListings?success=true";
+        return "redirect:/app/landlord/propertyListings/list?success=true";
     }
 
     @GetMapping("/edit/{id}")
