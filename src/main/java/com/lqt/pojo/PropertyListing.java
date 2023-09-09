@@ -1,12 +1,10 @@
-package com.mouhcine.roomconnect.core.bo;
+package com.lqt.pojo;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +41,7 @@ public class PropertyListing {
     @OneToMany(mappedBy = "propertyListing")
     private List<Comment> comments;
 
-    // use LocationEntity to store the location of the property
+    // use Location to store the location of the property
     @OneToOne
     @JoinColumn(name = "location_id")
     private Location location= new Location();

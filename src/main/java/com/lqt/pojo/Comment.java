@@ -1,6 +1,7 @@
-package com.mouhcine.roomconnect.core.bo;
+package com.lqt.pojo;
 
 
+import com.lqt.pojo.Utilisateur;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,13 +18,13 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Utilisateur user;
+    private com.lqt.pojo.Utilisateur user;
 
     @ManyToOne
     @JoinColumn(name = "property_listing_id")
     private PropertyListing propertyListing;
 
-    // Additional fields for CommentEntity
+    // Additional fields for Comment
     private String text;
     private String timestamp; // You can use a suitable date/time format
     @OneToOne

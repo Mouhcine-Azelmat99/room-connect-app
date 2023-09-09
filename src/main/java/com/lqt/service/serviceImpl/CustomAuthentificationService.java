@@ -1,9 +1,9 @@
-package com.mouhcine.roomconnect.core.service;
+package com.lqt.service.serviceImpl;
 
 
-import com.mouhcine.roomconnect.core.bo.Utilisateur;
-import com.mouhcine.roomconnect.core.config.UserPrincipal;
-import com.mouhcine.roomconnect.core.dao.UtilisateurDao;
+import com.lqt.pojo.Utilisateur;
+import com.lqt.security.UserPrincipal;
+import com.lqt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,24 +13,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- *
- * Cette classe contient le gestionnaire d'authentification personnalisé
- *
- */
+
 
 @Service
 public class CustomAuthentificationService implements UserDetailsService {
 
 	@Autowired
-	private UtilisateurDao userRepository;
+	private UserRepository userRepository;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) {
-		Utilisateur user = (Utilisateur) userRepository.findByName(username);
+		Utilisateur user = (Utilisateur) userRepository.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException(username);
 		}

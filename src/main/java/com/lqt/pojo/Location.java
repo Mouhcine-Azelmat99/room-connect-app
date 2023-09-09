@@ -1,4 +1,4 @@
-package com.mouhcine.roomconnect.core.bo;
+package com.lqt.pojo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

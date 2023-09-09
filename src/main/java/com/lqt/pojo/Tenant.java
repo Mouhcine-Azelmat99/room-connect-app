@@ -1,5 +1,7 @@
-package com.mouhcine.roomconnect.core.bo;
+package com.lqt.pojo;
 
+
+import com.lqt.pojo.Utilisateur;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +9,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity(name = "landlords")
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Landlord {
+public class Tenant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,11 +22,14 @@ public class Landlord {
     @JoinColumn(name = "user_id")
     private Utilisateur user;
 
+    @ManyToMany
+    @JoinTable(name = "tenant_follows",
+            joinColumns = @JoinColumn(name = "tenant_id"),
+            inverseJoinColumns = @JoinColumn(name = "landlord_id"))
+    private List<Landlord> followedLandlords;
+
     @OneToOne
     @JoinColumn(name = "location_id")
     private Location location;
-
-    @OneToMany(mappedBy = "landlord")
-    private List<PropertyListing> propertyListings;
 
 }

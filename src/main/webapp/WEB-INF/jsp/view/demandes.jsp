@@ -1,9 +1,9 @@
-<%@ page import="com.mouhcine.companiesManagement.core.bo.Domiciliation" %>
+<%@ page import="com.mouhcine.companiesManagement.lqt.pojo.Domiciliation" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="com.mouhcine.companiesManagement.core.bo.enumm.EtatDemande" %>
+<%@ page import="com.mouhcine.companiesManagement.lqt.pojo.enumm.EtatDemande" %>
 
 <html>
 <head>

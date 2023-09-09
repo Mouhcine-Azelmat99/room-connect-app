@@ -1,7 +1,7 @@
-package com.mouhcine.roomconnect.core.service;
+package com.lqt.service.serviceImpl;
 
-import com.mouhcine.roomconnect.core.bo.Tenant;
-import com.mouhcine.roomconnect.core.dao.TenantDao;
+import com.lqt.pojo.Tenant;
+import com.lqt.repository.TenantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class TenantService {
 
     @Autowired
-    private TenantDao tenantDao;
+    private TenantRepository tenantDao;
 
     public List<Tenant> getAll(){
         return tenantDao.findAll();

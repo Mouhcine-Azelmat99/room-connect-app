@@ -1,4 +1,4 @@
-package com.mouhcine.roomconnect;
+package com.lqt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

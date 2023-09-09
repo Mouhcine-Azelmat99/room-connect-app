@@ -1,7 +1,7 @@
-package com.mouhcine.roomconnect.core.controller;
+package com.lqt.controllers;
 
-import com.mouhcine.roomconnect.core.bo.Utilisateur;
-import com.mouhcine.roomconnect.core.service.CustomAuthentificationService;
+import com.lqt.pojo.Utilisateur;
+import com.lqt.service.serviceImpl.CustomAuthentificationService;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
@@ -19,15 +19,11 @@ public class UserController {
     private CustomAuthentificationService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @GetMapping("register")
-    public String login(Model model){
-        model.addAttribute("user",new Utilisateur());
-        return "register";
-    }
 
     @GetMapping("users")
     public String getAll(Model model){
         model.addAttribute("data",userService.getAll());
+        System.out.println(userService.getAll());
         return "users";
     }
 

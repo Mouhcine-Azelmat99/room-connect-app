@@ -1,9 +1,9 @@
-package com.mouhcine.roomconnect.core.config;
-
-import com.mouhcine.roomconnect.core.bo.Utilisateur;
-import org.springframework.security.core.GrantedAuthority;
+package com.lqt.security;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import com.lqt.pojo.Utilisateur;
+import org.springframework.security.core.*;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,11 +16,9 @@ public class UserPrincipal implements UserDetails {
     private List<GrantedAuthority> authorities;
 
     public UserPrincipal (Utilisateur utilisateur){
-        this.name= utilisateur.getName();
+        this.name= utilisateur.getUsername();
         this.password=utilisateur.getPassword();
-        authorities= Arrays.stream(utilisateur.getRole().toString().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+        authorities= Arrays.stream(utilisateur.getRole().toString().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 
     }
     @Override

@@ -1,9 +1,7 @@
-package com.mouhcine.roomconnect.core.config;
+package com.lqt.security;
 
-//import com.mouhcine.companiesManagement.core.service.CustomAuthentificationService;
-import com.mouhcine.roomconnect.core.service.CustomAuthentificationService;
+import com.lqt.service.serviceImpl.CustomAuthentificationService;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -45,6 +43,8 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/public/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/app/admin/**")).hasRole("ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/app/**")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/app/auth/**")).permitAll()
                 )
                 .formLogin(f -> f.defaultSuccessUrl("/app",true))
                 .exceptionHandling(ex -> ex.accessDeniedPage("/accessDenied"))
