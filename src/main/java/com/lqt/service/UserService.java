@@ -10,4 +10,9 @@ public interface UserService {
     void update(Utilisateur user);
     void delete(Long id);
 
+    boolean findByUsername(String username);
+
+    void saveUser(Utilisateur user);
+
+    Utilisateur getByUserName(String userName);
 }

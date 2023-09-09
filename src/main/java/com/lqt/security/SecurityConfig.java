@@ -42,9 +42,10 @@ public class SecurityConfig {
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/public/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/app/admin/**")).hasRole("ADMIN")
-                        .requestMatchers(new AntPathRequestMatcher("/app/**")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/app/auth/**")).permitAll()
+                     // allaw all request to webapp/resources
+                        .requestMatchers(new AntPathRequestMatcher("/webapp/resources/**")).permitAll()
                 )
                 .formLogin(f -> f.defaultSuccessUrl("/app",true))
                 .exceptionHandling(ex -> ex.accessDeniedPage("/accessDenied"))
