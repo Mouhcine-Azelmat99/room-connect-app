@@ -50,7 +50,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("register")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/webapp/resources/**")).permitAll()
                 )
-                .formLogin(f -> f.loginPage("/login").defaultSuccessUrl("/home"))
+                .formLogin(f -> f.loginPage("/login").defaultSuccessUrl("/home").defaultSuccessUrl("/app/landlord/propertyListings/list"))
                 .logout(l -> l.logoutUrl("/logout").logoutSuccessUrl("/login").permitAll())
                 .exceptionHandling(ex -> ex.accessDeniedPage("/accessDenied"))
                 .httpBasic(Customizer.withDefaults())

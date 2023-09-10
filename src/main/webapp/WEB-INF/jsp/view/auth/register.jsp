@@ -11,24 +11,24 @@
 <body>
 <div class="container">
 
-    <f:form method="POST"  action="${pageContext.request.contextPath}/register" modelAttribute="user">
-        <c:if test="${not empty usernameExistsError}">
-            <div class="alert alert-danger" role="alert">
-                    ${usernameExistsError}
-            </div>
-        </c:if>
-        <c:if test="${not empty bindingResult}">
-            <div class="alert alert-danger" role="alert">
-                <c:forEach var="error" items="${bindingResult.allErrors}">
-                    ${error.defaultMessage}
-                </c:forEach>
-            </div>
-        </c:if>
+
         <div class="row">
             <div class="col-8 my-5 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
                 <h3 class="my-4 text-center">Create an Account</h3>
 
-
+                <f:form method="POST"  action="${pageContext.request.contextPath}/register" modelAttribute="user">
+                <c:if test="${not empty usernameExistsError}">
+                    <div class="alert alert-danger" role="alert">
+                            ${usernameExistsError}
+                    </div>
+                </c:if>
+                <c:if test="${not empty bindingResult}">
+                    <div class="alert alert-danger" role="alert">
+                        <c:forEach var="error" items="${bindingResult.allErrors}">
+                            ${error.defaultMessage}
+                        </c:forEach>
+                    </div>
+                </c:if>
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
                     <f:input class="form-control" path="firstName"/>
