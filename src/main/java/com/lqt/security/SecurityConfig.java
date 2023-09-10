@@ -42,12 +42,16 @@ public class SecurityConfig {
                 .authorizeRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/public/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/app/admin/**")).hasRole("ADMIN")
+                        .requestMatchers(new AntPathRequestMatcher("/app/landlord/**")).hasRole("LANDLORD")
+                        .requestMatchers(new AntPathRequestMatcher("/app/tenant/**")).hasRole("TENANT")
+                        .requestMatchers(new AntPathRequestMatcher("/app/**")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/app/auth/**")).permitAll()
-                        // allaw all request to webapp/resources
+                        .requestMatchers(new AntPathRequestMatcher("login")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("register")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/webapp/resources/**")).permitAll()
                 )
-                .formLogin(f -> f.defaultSuccessUrl("/app",true))
+                .formLogin(f -> f.loginPage("/login").defaultSuccessUrl("/home"))
+                .logout(l -> l.logoutUrl("/logout").logoutSuccessUrl("/login").permitAll())
                 .exceptionHandling(ex -> ex.accessDeniedPage("/accessDenied"))
                 .httpBasic(Customizer.withDefaults())
                 .build();

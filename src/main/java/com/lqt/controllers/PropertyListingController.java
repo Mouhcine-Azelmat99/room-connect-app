@@ -35,7 +35,6 @@ public class PropertyListingController {
     public String listPropertyListings(Model model) {
         List<PropertyListing> propertyListings = propertyListingService.getAllListings();
         model.addAttribute("propertyListings", propertyListings);
-//        System.out.println(propertyListings);
         return "landlord/listings";
     }
 

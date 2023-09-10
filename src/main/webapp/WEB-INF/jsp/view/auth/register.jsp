@@ -10,22 +10,24 @@
 </head>
 <body>
 <div class="container">
-    <f:form method="POST"  action="${pageContext.request.contextPath}/app/auth/register" modelAttribute="user">
+
+    <f:form method="POST"  action="${pageContext.request.contextPath}/register" modelAttribute="user">
+        <c:if test="${not empty usernameExistsError}">
+            <div class="alert alert-danger" role="alert">
+                    ${usernameExistsError}
+            </div>
+        </c:if>
+        <c:if test="${not empty bindingResult}">
+            <div class="alert alert-danger" role="alert">
+                <c:forEach var="error" items="${bindingResult.allErrors}">
+                    ${error.defaultMessage}
+                </c:forEach>
+            </div>
+        </c:if>
         <div class="row">
-            <div class="col-8 my-5 mx-auto shadow p-4">
-                <h3 class="my-4">Create an Account</h3>
-                <c:if test="${not empty usernameExistsError}">
-                    <div class="alert alert-danger" role="alert">
-                        ${usernameExistsError}
-                    </div>
-                </c:if>
-                <c:if test="${not empty bindingResult}">
-                    <div class="alert alert-danger" role="alert">
-                        <c:forEach var="error" items="${bindingResult.allErrors}">
-                            ${error.defaultMessage}
-                        </c:forEach>
-                    </div>
-                </c:if>
+            <div class="col-8 my-5 mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+                <h3 class="my-4 text-center">Create an Account</h3>
+
 
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
@@ -62,7 +64,7 @@
                 <div class="mb-3">
                     <label class="form-label">Choose an Avatar</label>
                     <c:forEach var="avatar" items="${avatars}">
-                        <div class="form-check">
+                        <div class="form-check " >
                             <input type="radio" class="form-check-input" id="avatar_${avatar}" name="avatarImage" value="${avatar}">
                             <label class="form-check-label" for="avatar_${avatar}"><img src="${pageContext.request.contextPath}/resources/img/avatar/${avatar}" alt="${avatar}" width="50" height="50"></label>
                         </div>

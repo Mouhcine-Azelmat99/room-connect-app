@@ -15,4 +15,6 @@ public interface UserService {
     void saveUser(Utilisateur user);
 
     Utilisateur getByUserName(String userName);
+
+    boolean findByEmail(String email);
 }
